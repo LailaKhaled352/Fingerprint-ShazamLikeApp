@@ -36,6 +36,8 @@ class Spectrogram:
         Sxx_dB= self.find_spectrogram(song_data, sample_rate)
         self.save_spectrogram(Sxx_dB, file_name, output_folder_name)
 
+
+    
     
     #THIS IS WRITTEN TO BE EXECUTED ONCE
     def extract_and_save_75_spectrograms(self):
