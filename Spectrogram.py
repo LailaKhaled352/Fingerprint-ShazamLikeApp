@@ -11,7 +11,7 @@ class Spectrogram:
         Sxx_dB = 10 * np.log10(Sxx + np.finfo(float).eps) #np.finfo is to avoid take log(0)
         return Sxx_dB
     
-    def load_spectograms(self,source_folder):
+    def load_spectrograms(self,source_folder):
         spectrograms=[]
         file_names=[]
         for file_name in os.listdir(source_folder):
@@ -28,7 +28,7 @@ class Spectrogram:
     def extract_and_save_spectrogram(self, file_path, file_name, output_folder_name="Temporary_Spectograms"):
         sample_rate, song = wavfile.read(file_path)
         duration=30
-        num_samples = duration * sample_rate
+        num_samples = min(duration * sample_rate, len(song))
         if len(song.shape) == 1:
             song_data = song[:num_samples] 
         elif len(song.shape) >1 :
