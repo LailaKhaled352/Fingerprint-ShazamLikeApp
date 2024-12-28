@@ -2,6 +2,8 @@ from PyQt5.QtWidgets import QFileDialog
 from pydub import AudioSegment
 import os
 
+import tempfile
+
 class Browse:
     def __init__(self):
         pass
@@ -20,6 +22,7 @@ class Browse:
             return processed_path  # Return the processed file path
         return None
 
+
     def process_file(self, file_path):
         # Load the audio file
         audio = AudioSegment.from_file(file_path)
@@ -31,10 +34,11 @@ class Browse:
             trimmed_audio = audio[:30 * 1000]
 
             # Save the trimmed audio to a temporary file
-            output_path = os.path.splitext(file_path)[0] + "_trimmed.wav"
-            trimmed_audio.export(output_path, format="wav")
-            print(f"File trimmed to 30 seconds and saved as: {output_path}")
-            return output_path
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as temp_file:
+                temp_path = temp_file.name
+                trimmed_audio.export(temp_path, format="wav")
+                print(f"File trimmed to 30 seconds and saved as: {temp_path}")
+                return temp_path
 
         print("File is already 30 seconds or shorter.")
         return file_path  # Return the original file path if no trimming was needed
