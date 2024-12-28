@@ -49,14 +49,16 @@ class MainWindow(QMainWindow):
         self.delete2.clicked.connect(lambda: self.clear(self.fileName2, self.player2, self.play_pause2))
         self.slider_weight2 = self.findChild(QSlider, "slider2")
         self.slider_weight2.valueChanged.connect(lambda: self.setWeight(self.slider_weight2))
-
         self.slider_percent2 = self.findChild(QLabel, "weight2")       
 
+        # Initially disable sliders
+        self.update_sliders_state()
 
     def browse_file(self, label, player):
         file_path = self.browse.open_file_dialog(label)
         if file_path:
             player.setMedia(QMediaContent(QUrl.fromLocalFile(file_path)))
+        self.update_sliders_state()
 
     def toggle_play_pause(self, button, player):
         if player.mediaStatus() == QMediaPlayer.NoMedia:
@@ -81,6 +83,7 @@ class MainWindow(QMainWindow):
         label.setText("...")
         player.setMedia(QMediaContent())
         button.setIcon(self.play_icon)  
+        self.update_sliders_state()
 
     #return: 1)slider1, and 2)slider2 values
     def setWeight(self, slider):
@@ -96,6 +99,17 @@ class MainWindow(QMainWindow):
             self.slider_percent2.setText(f"{value} %")
             self.slider_percent1.setText(f"{100 - value} %")
             return 100 - value, value
+
+    def update_sliders_state(self):
+        """
+        Enables sliders only if both files are uploaded, otherwise disables them.
+        """
+        file1_uploaded = self.fileName1.text() != "..."
+        file2_uploaded = self.fileName2.text() != "..."
+        enable_sliders = file1_uploaded and file2_uploaded
+
+        self.slider_weight1.setEnabled(enable_sliders)
+        self.slider_weight2.setEnabled(enable_sliders)
 
 
 if __name__ == '__main__':
