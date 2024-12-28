@@ -75,23 +75,27 @@ class MainWindow(QMainWindow):
         if state == QMediaPlayer.StoppedState:
             button.setIcon(self.play_icon)        
 
+    #Deleting the uploaded audio
     def clear(self, label, player, button):
         player.stop()
         label.setText("...")
         player.setMedia(QMediaContent())
         button.setIcon(self.play_icon)  
 
+    #return: 1)slider1, and 2)slider2 values
     def setWeight(self, slider):
         if slider == self.slider_weight1:
             value = self.slider_weight1.value()
             self.slider_weight2.setValue(100 - value)
             self.slider_percent1.setText(f"{value} %")
             self.slider_percent2.setText(f"{100 - value} %")
+            return value, 100 - value                  
         elif slider == self.slider_weight2:
             value = self.slider_weight2.value()
             self.slider_weight1.setValue(100 - value)
             self.slider_percent2.setText(f"{value} %")
             self.slider_percent1.setText(f"{100 - value} %")
+            return 100 - value, value
 
 
 if __name__ == '__main__':
