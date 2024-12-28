@@ -22,10 +22,8 @@ class Spectrogram:
                 file_names.append(file_name)
         return spectrograms, file_names
     
-    def save_spectrogram(self, spectrogram, name, output_folder_name):
-        np.save(os.path.join(f"{output_folder_name}", f"{name}.npy"), spectrogram)
         
-    def extract_and_save_spectrogram(self, file_path, file_name, output_folder_name="Temporary_Spectograms"):
+    def extract_spectrogram(self, file_path):
         sample_rate, song = wavfile.read(file_path)
         duration=30
         num_samples = min(duration * sample_rate, len(song))
@@ -34,11 +32,21 @@ class Spectrogram:
         elif len(song.shape) >1 :
             song_data = song[:num_samples,0]
         Sxx_dB= self.find_spectrogram(song_data, sample_rate)
-        self.save_spectrogram(Sxx_dB, file_name, output_folder_name)
+        return Sxx_dB
+
+    def mix_spectrograms(self, file_path1, file_path2, slider_value):
+        '''
+        slider values: is the value of slider for file uploaded number 1
+        It's maped from (0->1)
+        '''
+        spectrogram1= self.extract_spectrogram(file_path1)
+        spectrogram2= self.extract_spectrogram(file_path2)
+        mixed_spectrogram= (slider_value)*spectrogram1 + (1-slider_value)*spectrogram2
+        return mixed_spectrogram
 
 
-    
-    
+
+
     #THIS IS WRITTEN TO BE EXECUTED ONCE
     def extract_and_save_75_spectrograms(self):
         #loop over folders  
@@ -62,3 +70,6 @@ class Spectrogram:
                         self.save_spectrogram(Sxx_dB, file_name)
                     else:
                         print(f"{file_name} doesn't ends with wav")
+
+    def save_spectrogram(self, spectrogram, name, output_folder_name):
+        np.save(os.path.join(f"{output_folder_name}", f"{name}.npy"), spectrogram)
