@@ -5,7 +5,7 @@ from imagehash import phash
 from scipy.ndimage import maximum_filter
 from PIL import Image
 
-class ExtractFeaturesAndHashing:
+class ExtractFeaturesAndHahsing:
     def __init__(self):
         self.input_folder = "Spectrograms"
         self.feature_folder = "Features"
