@@ -41,6 +41,11 @@ class Spectrogram:
         '''
         spectrogram1= self.extract_spectrogram(file_path1)
         spectrogram2= self.extract_spectrogram(file_path2)
+
+        max_time_steps = max(spectrogram1.shape[1], spectrogram2.shape[1])
+        spectrogram1 = np.pad(spectrogram1, ((0, 0), (0, max_time_steps - spectrogram1.shape[1])))
+        spectrogram2 = np.pad(spectrogram2, ((0, 0), (0, max_time_steps - spectrogram2.shape[1])))
+
         mixed_spectrogram= (slider_value)*spectrogram1 + (1-slider_value)*spectrogram2
         return mixed_spectrogram
 

@@ -57,27 +57,19 @@ class SimilaritySearch:
         return sorted_similarities
 
     def search_similarity_for_mixed_file(self, file_path1, file_path2, slider_value):
-        # Generate a mixed spectrogram
-        mixed_spectrogram = self.spectrogram.mix_spectrograms(file_path1, file_path2, slider_value)
-        
-        # Save mixed spectrogram as a temporary file
-        temp_file = "temp_mixed.npy"
-        np.save(temp_file, mixed_spectrogram)
+    # Generate mixed spectrogram
+     if slider_value is None:
+        slider_value = 50 
+     slider_value=slider_value/100
+     mixed_spectrogram = self.spectrogram.mix_spectrograms(file_path1, file_path2, slider_value)
+     temp_file = "temp_mixed.npy"
+     np.save(temp_file, mixed_spectrogram)
 
-        # Generate hash for the mixed spectrogram
-        features = self.feature_hashing.extract_features(mixed_spectrogram)
-        mixed_file_hash = self.feature_hashing.features_phash(features)
+    # Generate hash and compute similarities
+     features = self.feature_hashing.extract_features(mixed_spectrogram)
+     mixed_file_hash = self.feature_hashing.features_phash(features)
+     precomputed_hashes = self.load_precomputed_hashes()
+     sorted_similarities = self.compute_similarity(mixed_file_hash, precomputed_hashes)
+     return sorted_similarities
 
-        # Load precomputed hashes
-        precomputed_hashes = self.load_precomputed_hashes()
-
-        # Compute similarities
-        sorted_similarities = self.compute_similarity(mixed_file_hash, precomputed_hashes)
-
-        # Display results in a table
-        #print("Similarity Results for Mixed File:")
-        #print(tabulate(sorted_similarities, headers=["File Name", "Similarity Index"], tablefmt="grid"))
-
-        # Clean up temporary file
-        os.remove(temp_file)
-        return sorted_similarities
+    

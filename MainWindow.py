@@ -28,7 +28,7 @@ class MainWindow(QMainWindow):
         # 1st file
         self.fileName1 = self.findChild(QLabel, "file1")
         self.uploadFile1 = self.findChild(QPushButton, "uploadFile1")
-        self.uploadFile1.clicked.connect(lambda: self.browse_file(self.fileName1, self.player1))
+        self.uploadFile1.clicked.connect(lambda: self.browse_file(self.fileName1, self.player1,1))
         self.play_pause1 = self.findChild(QPushButton, "play_pause1")
         self.play_pause1.setIcon(self.play_icon)
         self.play_pause1.clicked.connect(lambda: self.toggle_play_pause(self.play_pause1, self.player1))
@@ -36,12 +36,14 @@ class MainWindow(QMainWindow):
         self.delete1.clicked.connect(lambda: self.clear(self.fileName1, self.player1, self.play_pause1))
         self.slider_weight1 = self.findChild(QSlider, "slider1")
         self.slider_weight1.valueChanged.connect(lambda: self.setWeight(self.slider_weight1))
+        self.slider_weight1.valueChanged.connect(lambda: self.perform_search(self.file_path1,self.file_path2,self.slider_weight1.value()))
+
         self.slider_percent1 = self.findChild(QLabel, "weight1")
 
         # 2nd file
         self.fileName2 = self.findChild(QLabel, "file2")
         self.uploadFile2 = self.findChild(QPushButton, "uploadFile2")
-        self.uploadFile2.clicked.connect(lambda: self.browse_file(self.fileName2, self.player2))
+        self.uploadFile2.clicked.connect(lambda: self.browse_file(self.fileName2, self.player2,2))
         self.play_pause2 = self.findChild(QPushButton, "play_pause2")
         self.play_pause2.setIcon(self.play_icon)
         self.play_pause2.clicked.connect(lambda: self.toggle_play_pause(self.play_pause2, self.player2))
@@ -54,11 +56,22 @@ class MainWindow(QMainWindow):
         # Initially disable sliders
         self.update_sliders_state()
 
-    def browse_file(self, label, player):
+    def browse_file(self, label, player,file_number):
         file_path = self.browse.open_file_dialog(label)
         if file_path:
             player.setMedia(QMediaContent(QUrl.fromLocalFile(file_path)))
-            self.perform_search(file_path)
+
+            if file_number==1:
+             self.file_path1=file_path
+             self.perform_search(self.file_path1,None,None)
+
+            elif file_number==2:
+             self.file_path2=file_path
+             self.perform_search(None,self.file_path2,None)
+
+
+            if hasattr(self, 'file_path1') and hasattr(self, 'file_path2'):
+             self.perform_search(self.file_path1, self.file_path2, None)  # Trigger mixed search if both files are available
             self.update_sliders_state()
 
     def toggle_play_pause(self, button, player):
@@ -83,6 +96,14 @@ class MainWindow(QMainWindow):
         label.setText("...")
         player.setMedia(QMediaContent())
         button.setIcon(self.play_icon)  
+        for i in range(10):  # Assuming you have 10 progress bars
+         progress_bar = self.findChild(QProgressBar, f"progressBar{i+1}")
+         progress_bar.setValue(0)
+    
+    # Clear labels for the results
+        for i in range(10):  # Assuming you have 10 labels
+         label = self.findChild(QLabel, f"label{i+1}")
+         label.setText("")
         self.update_sliders_state()
 
     def setWeight(self, slider):
@@ -98,11 +119,19 @@ class MainWindow(QMainWindow):
             self.slider_percent1.setText(f"{100 - value} %")
             return 100 - value, value
 
-    def perform_search(self, file_path):
-       
-     sorted_similarities = self.search.search_similarity(file_path)
-      
-     if not sorted_similarities:
+    def perform_search(self, file_path1, file_path2, slider_value):
+     if file_path1 and not file_path2:
+      sorted_similarities = self.search.search_similarity(file_path1)
+     elif file_path2 and not file_path1:
+      sorted_similarities = self.search.search_similarity(file_path2)
+
+     elif file_path1 and  file_path2: 
+        print ("enter for mix")
+        slider_value=self.slider_weight1.value()
+        sorted_similarities = self.search.search_similarity_for_mixed_file(file_path1, file_path2, slider_value)
+
+
+     else:
         print("No matches found.")
         sorted_similarities = [("No Match", 0.0)]  # Default entry if no matches
 

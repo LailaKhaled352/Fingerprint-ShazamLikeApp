@@ -1,51 +1,51 @@
 Song Name	Similarity (%)
-Group18_RollingInTheDeep_Vocals.wav	1.00%
-Group18_RollingInTheDeep_Music(1).wav	0.44%
-Group18_RollingInTheDeep_Music.wav	0.25%
+Let Her Go (Instrumental).wav	0.25%
+Save-your-tears(instruments).wav	0.25%
 A Thousand Years(instruments).wav	0.19%
-FE!N.wav	0.19%
+A Thousand Years(lyrics).wav	0.19%
 Group14_a sky full of stars_Music.wav	0.19%
-Group7_SweetDreams_Full.wav	0.19%
-Something Just Like That(Lyrics).wav	0.19%
-wen_elkhael [vocals].wav	0.19%
-A Thousand Years(lyrics).wav	0.12%
-A Thousand Years(original).wav	0.12%
-FE!N (Instruments).wav	0.12%
-Group14_a sky full of stars_Full.mp3.wav	0.12%
+Group3_SomeLikeYou_Vocal.wav	0.19%
+Group6_Alkanas_Music.wav	0.19%
+Save-your-tears(lyrcis).wav	0.19%
+Something Just Like That(Instruments).wav	0.19%
+Team9_Please_Please_Please_music.wav	0.19%
+Group14_a sky full of stars_Vocals.mp3.wav	0.12%
+Group18_RollingInTheDeep_Music(1).wav	0.12%
+Group19_ShadowOfMine_Music.wav	0.12%
 Group19_ShadowOfMine_Vocals.wav	0.12%
-Group3_SomeLikeYou_Full.wav	0.12%
-Group5_NinaCriedPower_Music.wav	0.12%
-Group6_Alkanas_Full.wav	0.12%
-Group6_Alkanas_Music.wav	0.12%
-Let Her Go (Original).wav	0.12%
-Save-your-tears(lyrcis).wav	0.12%
-Something Just Like That(Instruments).wav	0.12%
+Group20_HitTheRoadJack_Full.wav	0.12%
+Group20_HitTheRoadJack_Vocals.wav	0.12%
+Group5_NinaCriedPower_Full.wav	0.12%
+Group5_NinaCriedPower_Vocals.wav	0.12%
+Let Her Go (Vocals).wav	0.12%
+Shake It Out (instruments) (2).wav	0.12%
+Something Just Like That(Lyrics).wav	0.12%
 Somthing Just Like That(Original).wav	0.12%
+wen_elkhael [music].wav	0.12%
+Ya Lala(instruments).wav	0.12%
+Ya Lala(original).wav	0.12%
+A Thousand Years(original).wav	0.06%
 FE!N (Vocals).wav	0.06%
-Group19_ShadowOfMine_Music.wav	0.06%
-Group20_HitTheRoadJack_Full.wav	0.06%
-Group3_SomeLikeYou_Vocal.wav	0.06%
-Group5_NinaCriedPower_Full.wav	0.06%
-Group5_NinaCriedPower_Vocals.wav	0.06%
+Group14_a sky full of stars_Full.mp3.wav	0.06%
+Group18_RollingInTheDeep_Music.wav	0.06%
+Group18_RollingInTheDeep_Vocals.wav	0.06%
+Group20_HitTheRoadJack_Music.wav	0.06%
+Group3_SomeLikeYou_Full.wav	0.06%
+Group5_NinaCriedPower_Music.wav	0.06%
+Group6_Alkanas_Full.wav	0.06%
+Group6_Alkanas_Vocals.wav	0.06%
 Group7_SweetDreams_Vocals.wav	0.06%
-Save-your-tears(instruments).wav	0.06%
+Let Her Go (Original).wav	0.06%
 Save-your-tears(original).wav	0.06%
-Shake It Out (instruments) (2).wav	0.06%
-Shake It Out (lyrics) (2).wav	0.06%
 Shake It Out (original) (2).wav	0.06%
-Team9_Please_Please_Please_music.wav	0.06%
-wen_elkhael [music].wav	0.06%
-wen_elkhael[music+vocals].wav	0.06%
-Ya Lala(instruments).wav	0.06%
-Ya Lala(lyrics).wav	0.06%
-Ya Lala(original).wav	0.06%
-Group14_a sky full of stars_Vocals.mp3.wav	0.00%
-Group20_HitTheRoadJack_Music.wav	0.00%
-Group20_HitTheRoadJack_Vocals.wav	0.00%
+Team9_Please_Please_Please_full.wav	0.06%
+Team9_Please_Please_Please_vocal.wav	0.06%
+FE!N (Instruments).wav	0.00%
+FE!N.wav	0.00%
 Group3_SomeLikeYou_Music.wav	0.00%
-Group6_Alkanas_Vocals.wav	0.00%
+Group7_SweetDreams_Full.wav	0.00%
 Group7_SweetDreams_Music.wav	0.00%
-Let Her Go (Instrumental).wav	0.00%
-Let Her Go (Vocals).wav	0.00%
-Team9_Please_Please_Please_full.wav	0.00%
-Team9_Please_Please_Please_vocal.wav	0.00%
+Shake It Out (lyrics) (2).wav	0.00%
+wen_elkhael [vocals].wav	0.00%
+wen_elkhael[music+vocals].wav	0.00%
+Ya Lala(lyrics).wav	0.00%
