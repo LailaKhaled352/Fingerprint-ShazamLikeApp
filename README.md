@@ -9,8 +9,9 @@ The application also enables the user to explore the impact of spectrogram mixin
 
 Here is a video demonstration of how the application works :
 
-https://github.com/your-username/your-repository/raw/main/path/to/video/demo.mp4
-
+<video width="320" height="240" controls>
+  <source src="https://github.com/your-username/your-repository/raw/main/video%20demonstration/demo.mp4" type="video/mp4">
+</video>
 
 ---
 
