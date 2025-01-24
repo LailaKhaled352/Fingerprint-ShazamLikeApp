@@ -9,7 +9,7 @@ The application also enables the user to explore the impact of spectrogram mixin
 
 Here is a video demonstration of how the application works :
 
-![Video](https://github.com/JudyEssam/Fingerprint-ShazamLikeApp/raw/main/video%20demonstration/demo.mp4)
+
 
 ---
 
