@@ -50,8 +50,6 @@ Here is a video demonstration of how the application works :
 ## Requirements
 
 Before running the application, ensure you have the following dependencies installed:
-
-- Python 3.x
 - PyQt5
 - numpy
 - scipy
