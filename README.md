@@ -69,3 +69,10 @@ Install the following libraries
 ```python
 pip install numpy scipy pyqt5 scikit-learn pydub
 ```
+
+## Contributors
+
+- [Laila Khaled](https://github.com/LailaKhaled352)
+- [Fatma Elsharkawy](https://github.com/FatmaElsharkawy)
+- [Judy Essam](https://github.com/JudyEssam)
+- [Hajar Ehab](https://github.com/HajarEhab)
