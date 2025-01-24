@@ -41,10 +41,6 @@ Here is a video demonstration of how the application works :
 - **Adjust Weight**: Users can control the mixing ratio of the two spectrograms using two sliders, which will adjust the strength of each file in the mixed spectrogram.
   - The weight of each file is automatically adjusted based on the slider values.
 
-### **Progress Indicators**
-- **Real-Time Feedback**: The application provides a progress bar during lengthy operations (e.g., similarity computation and mixing) to keep the user informed of the process status.
-- **Cancellation Option**: Users can cancel ongoing operations if they wish to make new adjustments before the process is completed.
-
 ---
 
 ## Requirements
