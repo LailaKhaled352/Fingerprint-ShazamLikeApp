@@ -59,10 +59,7 @@ Before running the application, ensure you have the following dependencies insta
 - pydub
 
 ## Usage
-Clone the repo
-```python
-git clone https://github.com/YoussefHassanien/Signal-Viewer.git
-```
+
 Install the following libraries
 ```python
 pip install numpy scipy pyqt5 scikit-learn pydub
