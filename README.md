@@ -55,7 +55,7 @@ Before running the application, ensure you have the following dependencies insta
 ## Usage
 Clone the repo
 ```python
-git clone https://github.com/JudyEssam/Fingerprint-ShazamLikeApp
+git clone https://github.com/LailaKhaled352/Fingerprint-ShazamLikeApp
 ```
 Install the following libraries
 ```python
